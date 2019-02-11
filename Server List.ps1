@@ -1,6 +1,6 @@
 ﻿# Path of files
 #$path = 'U:\"Information System"\"PowerShell"' 
-$Path = "\\cherryhealth\users\desDheressa\Documents\Information System\PowerShell\ServerList.txt"
+$Path = "C:\Users\cwf87797\Box\My Box Notes\ServerList.txt"
 
 #Set-ExecutionPolicy Unrestricted
 #Get-ExecutionPolicy -List
@@ -8,6 +8,11 @@ $Path = "\\cherryhealth\users\desDheressa\Documents\Information System\PowerShel
 #SQL snap-ins
 #Add-pssnapin SqlServerCmdletSnapin100
 #Add-pssnapin SqlServerProviderSnapin100
+
+#Find the OU for the servers listed
+#Remove the "CN" value as it is used only for local computer
+([adsisearcher]"(&(name=$env:computername)(objectClass=computer))").findall().path
+
 
 # Remove Server List File
 If (Test-Path $Path)
@@ -19,7 +24,7 @@ If (Test-Path $Path)
 Add-Content $Path "ServerName,ServerGroup";
 
 # Get server list
-$ou = [ADSI]"LDAP://OU=SQL,OU=CSHS 2012 Servers,DC=cherryhealth,DC=net"
+$ou = [ADSI]"LDAP://OU=DBHDS,OU=Servers,OU=COV-Computers,DC=cov,DC=virginia,DC=gov"
 foreach ($child in $ou.psbase.Children )
 {
    if ($child.ObjectCategory -like '*computer*')

@@ -1,8 +1,8 @@
 ﻿# Issue warning if % free disk space is less 
 $PercentWarning = 30;
-$ServerDisk = '\\cherryhealth.net\users\desDheressa\Documents\Information System\PowerShell\ServerDisk.csv'
+$ServerDisk = 'C:\Users\cwf87797\Box\My Box Notes\ServerDisk.csv'
 #$ServerDir = '\\cherryhealth.net\users\desdheressa\Documents\Information System\PowerShell'
-$ServerList = '\\cherryhealth.net\users\desDheressa\Documents\Information System\PowerShell\serverlist.txt'
+$ServerList = 'C:\Users\cwf87797\Box\My Box Notes\serverlist.txt'
 # Path of files
 #$path = '\\cherryhealth\users\desDheressa\Documents\Information System\PowerShell'
 #First loop
@@ -12,7 +12,7 @@ $ServerList = '\\cherryhealth.net\users\desDheressa\Documents\Information System
 #Add-pssnapin SqlServerCmdletSnapin100
 #Add-pssnapin SqlServerProviderSnapin100
 Import-Module sqlps -DisableNameChecking
-Set-Location c:
+#Set-Location c:
 
 # Remove Server Disk File
 If (Test-Path $ServerDisk)
