@@ -56,3 +56,18 @@ ForEach-Object{
 <<<<<<< HEAD
 # Remove hush tag again
 >>>>>>> 5405e17921d68c7fa3b9a8b544185ac93d476e75
+
+<# 
+
+To work around SSL self assigned certificate error:
+
+To disable TLS/SSL verification for a single git command
+try passing -c to git with the proper config variable, or use Flow's answer:
+git -c http.sslVerify=false clone https://example.com/path/to/git
+
+To disable SSL verification for a specific repository
+If the repository is completely under your control, you can try:
+git config http.sslVerify false
+
+https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
+#>
